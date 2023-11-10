@@ -124,6 +124,7 @@ footer
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    z-index: 100;
 }
 #left1
 {
