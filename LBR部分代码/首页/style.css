@@ -1,65 +1,17 @@
-*
+* /*初始化 */
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box  ;
 }
-/* .head1
-{
-    filter:blur(20px)
-}
-
-.color1
-{
-    height: 550px;
-    width: 100%;
-    background: linear-gradient(to bottom, rgb(44, 58, 87), rgb(54, 65, 90));
-    background-color: aliceblue;
-}
-
-.color2
-{
-    height: 550px;
-    width: 100%;
-    background:rgb(54, 65, 90);
-    background-color: blue;
-} */
-.button
-{
-    background-color:rgb(44, 58, 87);
-    /* background-color:blue; */
-
-    height:800px; 
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:60px;
-    z-index: 5;
-}
-.button img
-{
-    z-index:10;
-}
-#button1
-{
-    width:30vh;
-}
-#button2
-{
-    width:35vh;
-}
-#button3
-{
-    width:30vh;
-}
 body 
 {
-    background-color: rgb(44, 58, 87);
+    background-color: rgb(44, 58, 87); /*背景深蓝
     /* background-color: white; */
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 .logo 
 {
     margin-right: auto;
@@ -71,32 +23,17 @@ body
     left: 0px;
     top: 0px;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     height: 100vh;
     width: 100%;
 }
+/* 五张图片：四个角以及一个月亮 */
 .parallax img
 {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     width: 100%;
     height: auto;
-    /* pointer-events: none; */
 }
-/* #moon 
-{
-    position: relative;
-    top:-15vh;
-    width: 600px; 
-    height: 600px; 
-    border-radius: 50%;
-    object-fit: cover;
-} */
 #moon {
     position: fixed;
-    /* top: -20vh; */
     left: 50vw;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -107,19 +44,22 @@ body
     z-index: -5; 
 }
 
-@keyframes moonAppear {
-    0% {
+@keyframes moonAppear /*月亮从一个点放大的动画效果*/
+{
+    0% 
+    {
         width: 0;
     }
-    100% {
-        width: 50vw;
+    100% 
+    {
+        width: 80vw;
     }
 }
 #left1,#left2,#right1,#right2
 {
     z-index: 1;
 } 
-footer
+footer/*最底部的版权黑框：孤电子队copyright*/
 {
     background-color: #000000;
     color: #b7b7b7;
@@ -128,6 +68,8 @@ footer
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    position: relative;
+    z-index: 1000;
 }
 #left1
 {
@@ -136,7 +78,7 @@ footer
     object-fit: cover; 
     animation: an_left1 5s forwards; 
 } 
-@keyframes an_left1 
+@keyframes an_left1 /*四张图从四个角往中间靠拢的动画效果*/
 {
     0%{
         transform: translate(-300px, -100px);
@@ -192,7 +134,7 @@ footer
     transform: translate(-100%,-100%);
     bottom: 0px;
     right: 0px;
-    z-index: 2;
+    z-index: 15;
     object-fit: cover; 
     animation: an_right2 5s forwards; 
 } 
@@ -208,40 +150,227 @@ footer
 }
 
 
+/* 浅蓝色的介绍框，介绍了我们的网页 */
+.intro
+{
+    background-color:rgb(22, 168, 194) ;
+    /* background-color: rgb(44, 58, 87); */
+    color: white;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    line-height: 2em;
+}
+.intro h2
+{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.intro p
+{
+    text-align: center;
+    line-height: 3em;
+}
+
+
 @media (max-width: 900px)
 {
-    #moon 
+    .intro
     {
-      /* top: -35vh; */
-    }
-  }
-@media(max-width:1100px)
-{
-    .button
-    {
+        background-color:rgb(22, 168, 194) ;
+        /* background-color: rgb(44, 58, 87); */
+        color: white;
+        height: 400px;
+        display: flex;
         flex-direction: column;
-        height: 1600px;
-        padding: 300px;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        line-height: 3em;
     }
-    #button1
+    .intro h2
+    {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    .intro p
+    {
+        font-size: 0.55em;
+        text-align: center;
+        line-height: 3em;
+    }
+    
+}
+.box
 {
-    width:200px;
-    }
-    #button2
+    background-color:rgb(44, 58, 87);
+    /* background-color:blue; */
+    position: relative;
+    height:800px; 
+    width:100%;
+    display: flex;
+    justify-content: space-between;   /*水平摆放，上下左右居中*/
+    align-items: center;
+    padding: 20px 60px;
+    z-index: 5;
+}
+
+.button
+{    
+    margin: 5px;
+    width: auto;
+    height: 60%;
+    background-color:rgb(44, 58, 87);
+    border-radius: 8px; /* 圆角边框 */
+}
+
+/* hover效果，鼠标放上去按钮会变大，并出现渐变色背景 */
+/* 从左到右四个按钮的渐变色背景都不同 */
+#button1:hover
+{
+    transform: scale(1.2); /* 按钮悬浮时放大 1.2 倍 */
+    background: linear-gradient(to bottom, #2c3a57, #4b5c7e);
+    border-radius: 8px; /* 圆角边框 */
+}
+#button2:hover
+{
+    transform: scale(1.2);
+    background: linear-gradient(to bottom, #2c3a57, #7e4b57);
+    border-radius: 8px;
+}
+#button3:hover
+{
+    transform: scale(1.2); 
+    background: linear-gradient(to bottom, #2c3a57, #4b7e5c);
+    border-radius: 8px; 
+}
+#button4:hover
+{
+    transform: scale(1.2);
+    /* background: linear-gradient(to bottom, #2c3a57, #635e7d); */
+    background: linear-gradient(to bottom, #2c3a57, #7e6b4b);
+    border-radius: 8px; 
+}
+.button img
+{
+    z-index:10;
+    padding:50px 20px;
+    /* width: 100%; 
+    height: auto; */
+    transition: transform 0.3s ease-in-out; /* 添加按钮悬浮时的动画效果 */
+}
+
+/* 因为原图片四个按钮大小不一，所以此处进行比例上的微调 */
+/* 同时设置了最小宽度，这样不会因为页面太小导致按钮也太小 */
+#button1
+{
+    width:23vh;
+    min-width: 180px;
+}
+#button2
+{
+    width:27vh;
+    min-width: 180px;
+}
+#button3
+{
+    width:28vh;
+    min-width: 180px;
+}
+#button4
+{
+    width:28vh;
+    min-width: 180px;
+}
+
+
+@media(max-height:400px) /*当页面高度太小时，调整box部分的高度以及hover放大的比例*/
+{
+    .box
     {
-        width:200px;
+        height:500px;
     }
-    #button3
+
+    #button4:hover
     {
-        width:200px;
+    transform: scale(1.1); 
+    }
+    #button4:hover
+    {
+        transform: scale(1.1);
+    }
+    #button4:hover
+    {
+        transform: scale(1.1);
+    }
+    #button4:hover
+    {
+        transform: scale(1.1); 
     }
 }
 
-@media(max-width:1100px)
+
+
+@media (max-width: 900px)/*对parallax五张img媒体查询，略微放大*/
 {
-    #left2,#right2
+    @keyframes moonAppear 
     {
-        position: absolute;
-        bottom: 0;
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 120vw;
+        }
     }
+
+    #left2,#left1,#right2,#right1
+    {
+        /* height:500px; */
+        width: 110vw;
+    }
+  
+}
+
+
+
+
+
+
+
+@media(max-width:900px)/*按钮媒体查询，纵向排列*/
+{
+    .box
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 2250px;
+        padding:50px 0;
+    }
+
+    
+    #button1
+    {
+        width:200px;
+        margin: 40px 0;
+    }
+    #button2
+    {
+        width:250px;
+        margin: 40px 0;
+    }
+    #button3
+    {
+        width:250px;
+        margin: 25px 0;
+    }
+    #button4
+    {
+        width:200px;
+        margin: 25px 0;
+    }
+
 }
